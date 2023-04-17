@@ -5,6 +5,7 @@ return {
     'tpope/vim-fugitive',
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
+    'mbbill/undotree',
     require 'plugins.lspconfig',
     require 'plugins.autocomplete',
     -- displays a popup with possible key bindings of the command you started typing
@@ -14,5 +15,5 @@ return {
     require 'plugins.telescope',
     require 'plugins.telescope-fzf-native',
     require 'plugins.treesitter',
-    'mbbill/undotree',
+    require 'plugins.neo-tree',
 }
