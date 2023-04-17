@@ -1,0 +1,10 @@
+[user]
+	name = Jacob Kupersmith
+	email = jake@jkup.org
+#	 signingKey = CHANGEME
+#[gpg]
+#	program = /usr/local/MacGPG2/bin/gpg2
+#[commit]
+#	gpgSign = true
+[init]
+	defaultBranch = main
