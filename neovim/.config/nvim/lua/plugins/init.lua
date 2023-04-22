@@ -11,6 +11,7 @@ return {
     -- displays a popup with possible key bindings of the command you started typing
     { 'folke/which-key.nvim', opts = {} },
     require 'plugins.colorscheme',
+    require 'plugins.bufferline',
     require 'plugins.lualine',
     require 'plugins.telescope',
     require 'plugins.telescope-fzf-native',
