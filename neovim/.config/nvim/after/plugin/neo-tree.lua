@@ -1,1 +1,2 @@
-vim.keymap.set('n', '<leader>t', vim.cmd.Neotree, { desc = 'neo-[t]ree' })
+
+vim.keymap.set('n', '<leader>fe', vim.cmd.Neotree, { desc = '[F]ile [E]xplorer' })
