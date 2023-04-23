@@ -51,14 +51,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-
-  lua_ls = {
-    Lua = {
-      completion = { callSnippet = "Replace" },
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
+  lua_ls = {},
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -80,6 +73,41 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
     }
   end,
+  ["lua_ls"] = function()
+    local is_macos = string.match(vim.loop.os_uname().sysname, "^Darwin")
+    local lua_ls_settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' }
+        },
+        completion = {
+          callSnippet = "Replace"
+        },
+        workspace = {
+          checkThirdParty = false,
+          library = vim.api.nvim_get_runtime_file("", true)
+        },
+        telemetry = {
+          enable = false
+        },
+      },
+    }
+    -- Check if running on macOS with Hammerspoon.app installed and EmmyLua.spoon annotations
+    if is_macos then
+      local hs_annotations = os.getenv("HOME") .. "/.hammerspoon/Spoons/EmmyLua.spoon/annotations"
+      local has_hs_annotations = vim.fn.isdirectory(hs_annotations)
+      if has_hs_annotations then
+        table.insert(lua_ls_settings.Lua.diagnostics.globals, 'hs')
+        table.insert(lua_ls_settings.Lua.workspace.library, hs_annotations)
+      end
+    end
+
+    require('lspconfig').lua_ls.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = lua_ls_settings,
+    }
+  end
 }
 
 -- nvim-cmp setup
