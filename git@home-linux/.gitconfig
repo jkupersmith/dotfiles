@@ -1,0 +1,8 @@
+[user]
+	name = Jacob Kupersmith
+	email = jake@jkup.org
+	signingKey = 0FFBDFE0C7F84F4D4087C7744138F9DC59752BAF
+[commit]
+	gpgSign = true
+[init]
+	defaultBranch = main
