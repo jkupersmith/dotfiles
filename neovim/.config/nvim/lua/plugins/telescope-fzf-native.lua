@@ -1,3 +1,4 @@
+-- telescope-fzf-native: performance optimized fuzzy finder
 local make_exe
 local build_cmd
 
