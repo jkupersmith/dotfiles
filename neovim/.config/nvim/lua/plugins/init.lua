@@ -98,4 +98,10 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim', },
         opts = {},
     },
+    -- gitsigns: git decorations for added, removed, and changed lines
+    -- TODO: Keymaps: Gitsigns provides an on_attach callback which can be used to setup buffer mappings.
+    {
+        'lewis6991/gitsigns.nvim',
+        opts = {},
+    },
 }
