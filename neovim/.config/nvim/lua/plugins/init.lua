@@ -59,7 +59,17 @@ return {
     -- which-key: displays a popup with possible key bindings of the command you started typing
     {
         'folke/which-key.nvim',
-        opts = {},
+        opts = {
+            key_labels = {
+                ['c'] = "[C]ode",
+                ['d'] = "[D]ocument",
+                ['f'] = "[F]ile",
+                ['g'] = "[G]it",
+                ['s'] = "[S]earch",
+                ['w'] = "[W]orkspace",
+                ['x'] = "Trouble",
+            },
+        },
     },
     -- bufferline: show open buffers as tabs
     {
