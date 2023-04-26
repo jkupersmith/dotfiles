@@ -30,8 +30,7 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.swapfile = false
 vim.o.backup = false
-local homedir = os.getenv("HOME") or os.getenv("USERPROFILE")
-vim.o.undodir = homedir .. "/.vim/undodir"
+vim.o.undodir = vim.loop.os_homedir() .. "/.vim/undodir"
 vim.o.undofile = true
 
 -- Case insensitive searching UNLESS /C or capital in search
