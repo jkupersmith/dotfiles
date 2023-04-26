@@ -104,4 +104,9 @@ return {
         'lewis6991/gitsigns.nvim',
         opts = {},
     },
+    -- Smart and Powerful commenting plugin for neovim
+    {
+        'numToStr/Comment.nvim',
+        opts = {},
+    },
 }
