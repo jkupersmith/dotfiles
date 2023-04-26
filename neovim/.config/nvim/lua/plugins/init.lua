@@ -7,14 +7,24 @@ return {
     'tpope/vim-sleuth',
     -- undotree
     'mbbill/undotree',
-    -- tokyonight colorscheme
+    -- color scheme
     {
-        'folke/tokyonight.nvim',
+        'rebelot/kanagawa.nvim',
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme tokyonight]])
+            vim.cmd([[colorscheme kanagawa]])
         end,
+    },
+    -- tokyonight colorscheme
+    {
+        'folke/tokyonight.nvim',
+        lazy = true,
+        -- lazy = false,
+        -- priority = 1000,
+        -- config = function()
+        --     vim.cmd([[colorscheme tokyonight]])
+        -- end,
     },
     -- lspconfig
     {
