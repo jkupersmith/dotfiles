@@ -7,25 +7,64 @@ return {
     'tpope/vim-sleuth',
     -- undotree
     'mbbill/undotree',
-    -- color scheme
+    -- catppuccin color scheme
     {
-        'rebelot/kanagawa.nvim',
+        'catppuccin/nvim',
+        name = 'catppuccin',
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd([[colorscheme kanagawa]])
+            vim.cmd([[colorscheme catppuccin]])
         end,
+        opts = {
+            integrations = {
+                bufferline = true,
+                cmp = true,
+                fidget = true,
+                gitsigns = true,
+                lsp_trouble = true,
+                -- markdown = true,
+                native_lsp = {
+                    enabled = true,
+                    virtual_text = {
+                        errors = { "italic" },
+                        hints = { "italic" },
+                        warnings = { "italic" },
+                        information = { "italic" },
+                    },
+                    underlines = {
+                        errors = { "underline" },
+                        hints = { "underline" },
+                        warnings = { "underline" },
+                        information = { "underline" },
+                    },
+                },
+                telescope = true,
+                treesitter = true,
+                which_key = true,
+            },
+        },
     },
-    -- tokyonight colorscheme
-    {
-        'folke/tokyonight.nvim',
-        lazy = true,
-        -- lazy = false,
-        -- priority = 1000,
-        -- config = function()
-        --     vim.cmd([[colorscheme tokyonight]])
-        -- end,
-    },
+    -- -- kanagawa color scheme
+    -- {
+    --     'rebelot/kanagawa.nvim',
+    --     lazy = true,
+    --     -- lazy = false,
+    --     -- priority = 1000,
+    --     -- config = function()
+    --     --     vim.cmd([[colorscheme kanagawa]])
+    --     -- end,
+    -- },
+    -- -- tokyonight color scheme
+    -- {
+    --     'folke/tokyonight.nvim',
+    --     lazy = true,
+    --     -- lazy = false,
+    --     -- priority = 1000,
+    --     -- config = function()
+    --     --     vim.cmd([[colorscheme tokyonight]])
+    --     -- end,
+    -- },
     -- lspconfig
     {
         'neovim/nvim-lspconfig',
@@ -37,7 +76,11 @@ return {
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
             {
                 'j-hui/fidget.nvim',
-                opts = {},
+                opts = {
+                    window = {
+                        blend = 0,
+                    },
+                },
             },
             -- Additional lua configuration, makes nvim stuff amazing!
             -- See: `:help neodev.nvim.txt`
@@ -76,7 +119,15 @@ return {
     {
         'akinsho/bufferline.nvim',
         version = "v3.*",
-        dependencies = 'nvim-tree/nvim-web-devicons',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+            'catppuccin',
+        },
+        config = function()
+            require("bufferline").setup {
+                highlights = require("catppuccin.groups.integrations.bufferline").get()
+            }
+        end,
         opts = {}
     },
     -- lualine: improved status line
@@ -85,7 +136,11 @@ return {
         dependencies = {
             'nvim-tree/nvim-web-devicons',
         },
-        opts = {}
+        opts = {
+            options = {
+                theme = 'catppuccin',
+            },
+        },
     },
     -- trouble: A pretty list for showing diagnostics, references, telescope results, etc..
     {
