@@ -76,6 +76,7 @@ return {
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
             {
                 'j-hui/fidget.nvim',
+                tag = "legacy",
                 opts = {
                     window = {
                         blend = 0,
