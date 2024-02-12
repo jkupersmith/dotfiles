@@ -3,9 +3,17 @@
 My collection of dotfiles.  My goal is to use the same configuration on Linux, macOS, and Windows.
 
 I currently use the following platforms:
-- Fedora 37 Workstation
-- macOS 13
+- Fedora 39 Workstation
+- macOS 12, 13
 - Windows 11
+
+## macOS Notes
+
+```
+brew install stow
+brew tap homebrew/cask-fonts
+brew install font-jetbrains-mono-nerd-font
+```
 
 ## Windows Notes
 
