@@ -1,0 +1,10 @@
+import = ["/Users/jake/.config/alacritty/catppuccin-mocha.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 18.0
+
+[font.normal]
+family = "JetBrainsMonoNL Nerd Font"
