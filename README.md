@@ -1,4 +1,4 @@
-# jakup's dotfiles
+# jkupersmith's dotfiles
 
 My collection of dotfiles.  My goal is to use the same configuration on Linux, macOS, and Windows.
 
