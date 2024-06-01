@@ -4,15 +4,30 @@ My collection of dotfiles.  My goal is to use the same configuration on Linux, m
 
 I currently use the following platforms:
 - Fedora 39 Workstation
-- macOS 12, 13
+- macOS 12, 14
 - Windows 11
 
 ## macOS Notes
 
 ```
+xcode-select --install
 brew install stow
-brew tap homebrew/cask-fonts
 brew install font-jetbrains-mono-nerd-font
+brew install alacritty
+brew install tmux
+brew install neovim
+brew install cmake
+brew install ripgrep
+brew install fd
+brew install hammerspoon
+brew install gpg
+brew install pinentry-mac
+echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+killall gpg-agent
+stow -t ~ alacritty
+stow -t ~ hammerspoon
+stow -t ~ neovim
+stow -t ~ tmux
 ```
 
 ## Windows Notes
