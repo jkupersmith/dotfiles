@@ -22,12 +22,13 @@ brew install fd
 brew install hammerspoon
 brew install gpg
 brew install pinentry-mac
+
+# stow configs
+for d in alacritty gitconfig hammerspoon neovim tmux zsh; do stow -t ~ $d; done
+
+# setup pinentry for gpg
 echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
 killall gpg-agent
-stow -t ~ alacritty
-stow -t ~ hammerspoon
-stow -t ~ neovim
-stow -t ~ tmux
 ```
 
 ## Windows Notes
