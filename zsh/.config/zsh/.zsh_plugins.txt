@@ -1,0 +1,60 @@
+#!/bin/zsh
+#
+# .zsh_plugins.txt - antidote plugins file
+#
+
+### Overview
+#
+# The `.zsh_plugins.txt` file is used by antidote to configure Zsh bundles. Bundles are
+# just a fancy way of referring to Zsh utilities, frameworks, prompts, or plugins.
+# `.zsh_plugins.txt` is used by antidote to generate a static `.zsh_plugins.zsh` file,
+# which can then be sourced in your `.zshrc`. You can use this file as a starting point
+# for your own config. Strip out instructional comments (ie: lines beginning with a '#')
+# and any plugins you don't need, then add what you like and make it yours!
+#
+# NOTE: Order matters in this file! Some bundles need to be last, and others are
+# prerequisites. Read the documentation for the plugins you use to ensure proper
+# configuration.
+#
+###
+
+### Completions
+
+# With antidote, using Zephyr's completion plugin is recommended. This plugin is meant
+# to be run near the TOP of your .zsh_plugins.txt file.
+mattmc3/zephyr path:plugins/completion
+
+## Local Plugins
+$ZDOTDIR/.aliases
+
+### Prompts
+romkatv/powerlevel10k
+
+### Utilities
+#
+# Utilities aren't traditional Zsh plugins - they aren't sourced Zsh scripts. Instead
+# they provide commands that can be executed from your terminal session. One good
+# example is zsh-bench, which is a utility that benchmarks your Zsh config. Utility
+# bundles can often be made available simply with the `kind:path` annotation.
+#
+###
+romkatv/zsh-bench kind:path
+
+### Framework: zsh-utils
+belak/zsh-utils path:history
+
+### Deferred Plugins
+
+# Syntax highlighting
+zdharma-continuum/fast-syntax-highlighting kind:defer
+
+### Final Plugins
+#
+# Remember plugin order matters! Put plugins that need run last at the bottom of your
+# .zsh_plugins.txt file.
+#
+###
+
+# These popular core plugins should be loaded at the end
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search

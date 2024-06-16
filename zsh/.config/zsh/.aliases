@@ -1,0 +1,27 @@
+#!/bin/zsh
+#
+# .aliases - Set whatever shell aliases you want.
+#
+
+# single character aliases - be sparing!
+alias _=sudo
+alias l=ls
+alias g=git
+
+# mask built-ins with better defaults
+alias vi=nvim
+alias vim=nvim
+
+# more ways to ls
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias ldot='ls -ld .*'
+
+# fix common typos
+alias cd..='cd ..'
+
+# misc
+alias zshrc='${EDITOR:-nvim} "${ZDOTDIR:-$HOME}"/.zshrc'
+alias zbench='for i in {1..10}; do /usr/bin/time zsh -lic exit; done'
+alias zdot='cd ${ZDOTDIR:-~}'
+alias vimrc='${EDITOR:-nvim} "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim/init.lua'
